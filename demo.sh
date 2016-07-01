@@ -5,8 +5,8 @@
 #module name
 
 echo "Enter repository name:"
-#read repoPath
-repoPath=http://products.git.devoffice.com/magento/magento2-read-only.git
+read repoPath
+#repoPath=http://products.git.devoffice.com/magento/magento2-read-only.git
 
 repo=${repoPath#http://}
 repo=${repo%.git}
@@ -19,14 +19,14 @@ if [ ! -d "$repoName" ]; then
     cd $repoName
     ver=$(git describe --tags)
     ver=${ver#v}
-    echo $ver
+    echo "*** Recent version: " $ver
     cd ../ #exit to root
     rm -Rf $repoName/.git
 fi
 
 echo "Enter module name:"
-#read moduleName
-moduleName=ReadOnly
+read moduleName
+#moduleName=ReadOnly
 
 tmpDirSuffix='__tmp'
 tmpDir=$repoName$tmpDirSuffix
@@ -49,18 +49,20 @@ cp -R -v $repoName/* $tmpDir/marketplace
 echo "*** Preparing marketplace archive"
 
 cd $tmpDir/marketplace
-zip -r ../../marketplace_TemplateMonster_$moduleName_$ver.zip .
+zip -r ../../marketplace_TemplateMonster_$moduleName\_$ver.zip .
 cd ../ #exit to __tmp dir
 
 
 echo "*** Preparing granter archive"
 
 cd granter/
-zip -r ../../granter_TemplateMonster_$moduleName_$ver.zip .
+zip -r ../../granter_TemplateMonster_$moduleName\_$ver.zip .
 cd ../../ #exit to root
 
 echo "*** Removing directories"
 rm -Rf $repoName
 rm -Rf $tmpDir
+
+echo "*** Complete"
 
 read
