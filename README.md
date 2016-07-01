@@ -1,4 +1,4 @@
-# Mgento Extensions Packager
+# Magento Extensions Packager
 Bash script for preparing Magento extensions packages
 
 1. Clones specified git repository
