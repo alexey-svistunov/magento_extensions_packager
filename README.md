@@ -1,5 +1,6 @@
 # Magento Extensions Packager
-Bash script for preparing Magento extensions packages
+### demo.sh
+Shell script for preparing extension packages
 
 1. Clones specified git repository
 2. Creates temporary director and prepares files structure for TemplateMonster and Magento Marketplaces
@@ -9,3 +10,12 @@ Bash script for preparing Magento extensions packages
 Requires installation of zip.exe file (Windows) to your user or bin directories.
 GitBash: `c:\Program Files (x86)\Git\usr\bin\`
 CMD: `c:\Users\yourusername\`
+
+### install.sh
+1. Created demo directory
+2. Downloads required packages from composer
+3. Created database
+4. Sets ownership and permissions
+5. Install magento
+
+
