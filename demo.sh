@@ -4,9 +4,13 @@
 #repository
 #module name
 
-echo "Enter repository name:"
+echo "Enter repository HTTP clone path:"
 read repoPath
 #repoPath=http://products.git.devoffice.com/magento/magento2-read-only.git
+#
+echo "Enter result archive name:"
+read moduleName
+#moduleName=ReadOnly
 
 repo=${repoPath#http://}
 repo=${repo%.git}
@@ -23,10 +27,6 @@ if [ ! -d "$repoName" ]; then
     cd ../ #exit to root
     rm -Rf $repoName/.git
 fi
-
-echo "Enter module name:"
-read moduleName
-#moduleName=ReadOnly
 
 tmpDirSuffix='__tmp'
 tmpDir=$repoName$tmpDirSuffix
